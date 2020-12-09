@@ -1,5 +1,5 @@
-# linux_drivers_start
-my early linux device drivers
+
+my early linux kernel modules
 
 
 PCI1:
