@@ -94,7 +94,7 @@ ts: 1607531716.595053219, inner:16, outer:16
 ts: 1607531721.715051250, inner:1, outer:18
 
 
-I could be more through with these tests, chagne the RTlinux on device back to the non-RT linux version. 
+I could be more through with these tests, chagne the RTlinux on device A back to the non-RT linux version. 
 but this is just a rough test to show that I did change things when installing RTlinux.
 
 other usefull referneces:
