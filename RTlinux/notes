@@ -14,3 +14,92 @@ NOTE: device A and device B are differnet hardware platforms, both PC class comp
 for my purposes, this does not matter at the moment.
 
 sudo cyclictest --smp -p95 -m
+
+    DEVICE A:
+T: 0 (17043) P:95 I:1000 C:   5297 Min:      1 Act:    1 Avg:    1 Max:      10
+T: 1 (17044) P:95 I:1500 C:   3528 Min:      1 Act:    1 Avg:    1 Max:       7
+T: 2 (17045) P:95 I:2000 C:   2646 Min:      1 Act:    1 Avg:    1 Max:       5
+T: 3 (17046) P:95 I:2500 C:   2115 Min:      1 Act:    1 Avg:    1 Max:       3
+
+    DEVICE B:
+T: 0 (50744) P:95 I:1000 C:   5053 Min:      2 Act:    2 Avg:    4 Max:    2180
+T: 1 (50745) P:95 I:1500 C:   3372 Min:      2 Act:    2 Avg:    4 Max:    1998
+T: 2 (50746) P:95 I:2000 C:   2527 Min:      2 Act:    2 Avg:    4 Max:     411
+T: 3 (50747) P:95 I:2500 C:   2019 Min:      2 Act:    2 Avg:    4 Max:     177
+
+
+sudo hwlatdetect --duration=120 --threshold=15
+
+    DEVICE A:
+hwlatdetect:  test duration 120 seconds
+   detector: tracer
+   parameters:
+        Latency threshold: 15us
+        Sample window:     1000000us
+        Sample width:      500000us
+     Non-sampling period:  500000us
+        Output File:       None
+
+Starting test
+test finished
+Max Latency: Below threshold
+Samples recorded: 0
+Samples exceeding threshold: 0
+
+    DEVICE B:
+ hwlatdetect:  test duration 120 seconds
+   detector: tracer
+   parameters:
+        Latency threshold: 15us
+        Sample window:     1000000us
+        Sample width:      500000us
+     Non-sampling period:  500000us
+        Output File:       None
+
+Starting test
+test finished
+Max Latency: 28us
+Samples recorded: 31
+Samples exceeding threshold: 31
+ts: 1607531605.999099511, inner:22, outer:28
+ts: 1607531607.027082002, inner:15, outer:16
+ts: 1607531608.051054136, inner:15, outer:18
+ts: 1607531610.103053280, inner:18, outer:18
+ts: 1607531612.147053248, inner:9, outer:18
+ts: 1607531614.195057224, inner:1, outer:18
+ts: 1607531619.319052074, inner:1, outer:18
+ts: 1607531620.339056320, inner:9, outer:18
+ts: 1607531629.555069974, inner:16, outer:16
+ts: 1607531632.627058557, inner:3, outer:18
+ts: 1607531634.675052703, inner:9, outer:18
+ts: 1607531635.699052635, inner:18, outer:18
+ts: 1607531637.751054048, inner:1, outer:18
+ts: 1607531642.871051462, inner:12, outer:18
+ts: 1607531645.943050757, inner:1, outer:18
+ts: 1607531647.987058407, inner:16, outer:12
+ts: 1607531661.299054116, inner:16, outer:16
+ts: 1607531662.327051652, inner:18, outer:9
+ts: 1607531665.395051755, inner:4, outer:18
+ts: 1607531666.419058024, inner:1, outer:18
+ts: 1607531667.443051469, inner:9, outer:18
+ts: 1607531669.491053650, inner:18, outer:12
+ts: 1607531671.539052789, inner:18, outer:12
+ts: 1607531672.567052562, inner:1, outer:18
+ts: 1607531673.587053313, inner:9, outer:18
+ts: 1607531674.615052585, inner:18, outer:1
+ts: 1607531678.711052155, inner:18, outer:9
+ts: 1607531681.779058918, inner:18, outer:1
+ts: 1607531684.851054470, inner:1, outer:18
+ts: 1607531716.595053219, inner:16, outer:16
+ts: 1607531721.715051250, inner:1, outer:18
+
+
+I could be more through with these tests, chagne the RTlinux on device back to the non-RT linux version. 
+but this is just a rough test to show that I did change things when installing RTlinux.
+
+other usefull referneces:
+https://wiki.archlinux.org/index.php/Realtime_kernel_patchset
+http://people.redhat.com/williams/latency-howto/rt-latency-howto.txt
+https://sysplay.in/blog/linux-kernel-internals/2015/04/kernel-threads/
+https://linux.enea.com/4.0/documentation/book-enea-linux-realtime-guide.pdf
+https://tldp.org/HOWTO/RTLinux-HOWTO-4.html#ss4.1
