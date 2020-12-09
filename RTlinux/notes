@@ -1,0 +1,16 @@
+I changed the kernel of one of my devices to include the PREEMPT_RT patch
+  (I used the follwing website as a guide: https://stackoverflow.com/questions/51669724/install-rt-linux-patch-for-ubuntu)
+
+kernel info device A: Linux ... 5.4.5-rt3 ...
+kernel info devoce B: Linux ... 5.4.0-53-generic ...
+
+I initally thought there was a new API to use the RTlinux premption, this is wrong. both kernela (with and without the patch) do multithreading the same way.
+the differnece is taht the PREEMPT_RT kernel has had things changed so that the OS can act more deterministically.
+
+I wanted to show that there was a differnece between the kernels, so I used rt-tests on both.
+  (sudo apt install rt-tests)
+
+NOTE: device A and device B are differnet hardware platforms, both PC class computers, the diffence in test results may be partly due to that.
+for my purposes, this does not matter at the moment.
+
+sudo cyclictest --smp -p95 -m
