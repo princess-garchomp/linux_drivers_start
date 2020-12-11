@@ -1,3 +1,46 @@
+ONE:
+
+file one in this folder is creates two task. task one is of higher priority then task two. task one needs to sleep for task two to begin.
+task one blocks task two for about 5 seconds.\
+
+example dmesg:
+...time: 1607708797...
+
+[13573.348944] Thread ONE Running. counter: 10763992. time: 1607708799
+[13573.348944] Thread ONE Running. counter: 10763993. time: 1607708799
+[13573.348944] Thread ONE Running. counter: 10763994. time: 1607708799
+[13573.348945] Thread ONE Running. counter: 10763995. time: 1607708799
+[13573.348945] Thread ONE Running. counter: 10763996. time: 1607708800
+[13573.348946] Thread ONE sleeping
+[13574.299159] Thread TWO Running. counter: 10763997. time: 1607708800
+[13575.323145] Thread TWO Running. counter: 10763998. time: 1607708801
+[13576.347137] Thread TWO Running. counter: 10763999. time: 1607708802
+[13577.371147] Thread TWO Running. counter: 10764000. time: 1607708804
+[13578.395143] Thread TWO Running. counter: 10764001. time: 1607708805
+[13578.523169] Thread ONE sleeping
+[13579.419160] Thread TWO Running. counter: 10764002. time: 1607708806
+[13580.443075] Thread TWO Running. counter: 10764003. time: 1607708807
+[13581.467070] Thread TWO Running. counter: 10764004. time: 1607708808
+[13582.491057] Thread TWO Running. counter: 10764005. time: 1607708809
+[13583.519142] Thread TWO Running. counter: 10764006. time: 1607708810
+[13583.643133] Thread ONE sleeping
+[13584.539138] Thread TWO Running. counter: 10764007. time: 1607708811
+[13585.563074] Thread TWO Running. counter: 10764008. time: 1607708812
+[13586.591051] Thread TWO Running. counter: 10764009. time: 1607708813
+[13587.615066] Thread TWO Running. counter: 10764010. time: 1607708814
+[13588.635066] Thread TWO Running. counter: 10764011. time: 1607708815
+[13588.763064] Thread ONE sleeping
+[13589.659129] Thread TWO Running. counter: 10764012. time: 1607708816
+[13590.683120] Thread TWO Running. counter: 10764013. time: 1607708817
+...
+[13688.987084] Thread TWO Running. counter: 10764109. time: 1607708915
+[13690.010938] Thread TWO Running. counter: 10764110. time: 1607708916
+[13691.034966] Thread TWO Running. counter: 10764111. time: 1607708917
+[13691.162929] Thread ONE Stopping
+[13692.058953] Thread two Stopping
+[13692.058990] Cleaning Up
+
+this illustrates how to set priority of tasks.
 
 
 referneces:
