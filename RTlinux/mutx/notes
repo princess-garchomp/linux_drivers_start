@@ -6,7 +6,7 @@ the higher priority task is changing the shared variable.
 the counter will never get over the value 4000000 becuase of it is being reset to zero every 1 second
 
 mutex_test_two
-once the second task sets the value counter to zero, task one stops incramenting its value
+once the second task sets the value counter to zero, task one stops incramenting its value and prints coutner value of zero.
 
 mutex_test_three
 task one will not ever rech counter value 4000000, meaning it will only stop running after teh 5 second deadline and not before.
