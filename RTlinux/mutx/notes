@@ -9,8 +9,9 @@ mutex_test_two
 once the second task sets the value counter to zero, task one stops incramenting its value and prints coutner value of zero.
 
 mutex_test_three
-task one will not ever rech counter value 4000000, meaning it will only stop running after teh 5 second deadline and not before.
+task one will not ever rech counter value 4000000, meaning it will only stop running after teh 3 second deadline and not before.
 
-
+mutex_test_four 
+task two sleeps for 2 seconds now, allowing task 1 to count up to 4000000, and displaying the message that the counter reached 4000000
 
 this illistrates why we need to lock variables via mutex, 
